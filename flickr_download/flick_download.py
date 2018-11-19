@@ -221,8 +221,8 @@ def download_photo(photo_id, get_filename, size_label, skip_download=False):
 
 def find_user(userid):
     if userid.startswith("https://") or \
-       userid.startswith("www.flickr.com") or \
-        userid.startswith("flickr.com"):
+            userid.startswith("www.flickr.com") or \
+            userid.startswith("flickr.com"):
         user = Flickr.Person.findByUrl(userid)
     elif userid.find("@") > 0:
         user = Flickr.Person.findByEmail(userid)
@@ -266,7 +266,7 @@ def print_sets(username):
 
     @param username: str,
     """
-    with Timer('findByUserName()'):
+    with Timer('find_user()'):
         user = find_user(username)
     with Timer('getPhotosets()'):
         photosets = user.getPhotosets()
